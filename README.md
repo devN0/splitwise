@@ -23,3 +23,12 @@ Input-format:
 
 [//]: # (NOTE: In springboot if you are building a command line application then your main application class should implement
 CommandLineRunner interface)
+
+** C O N C E P T S **
+
+- Spring Annotation - by using @Controller, @Service, @Repository
+  - Spring makes the respective classes a singleton and saves them in spring context
+  - It allows us to inject the object of that class wherever we need by using @Autowired
+
+- @Autowired
+  - 

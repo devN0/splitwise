@@ -4,12 +4,21 @@ import com.example.splitwise.commands.RegisterUserCommand;
 import com.example.splitwise.commands.UpdateProfileCommand;
 import com.example.splitwise.commands.registry.CommandRegistry;
 import com.example.splitwise.commands.registry.CommandRegistryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+@EnableJpaAuditing
 public class SplitwiseApplication implements CommandLineRunner {
+    @Autowired
+    private CommandRegistry commandRegistry;
+    @Autowired
+    private RegisterUserCommand registerUserCommand;
+    @Autowired
+    private UpdateProfileCommand updateProfileCommand;
 
     public static void main(String[] args) {
         SpringApplication.run(SplitwiseApplication.class, args);
@@ -17,11 +26,10 @@ public class SplitwiseApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        CommandRegistry commandRegistry = new CommandRegistryImpl();
-        commandRegistry.registerCommand(new RegisterUserCommand());
-        commandRegistry.registerCommand(new UpdateProfileCommand());
+        commandRegistry.registerCommand(registerUserCommand);
+        commandRegistry.registerCommand(updateProfileCommand);
 
-        String input = "u1 UpdateProfile noop";
+        String input = "Register u1 9876543210 noop";
 
         commandRegistry.executeCommand(input);
     }

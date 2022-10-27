@@ -1,8 +1,10 @@
 package com.example.splitwise.commands;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.List;
-
+@Component
 public class UpdateProfileCommand implements Command {
     @Override
     public boolean parse(String commandLine) {

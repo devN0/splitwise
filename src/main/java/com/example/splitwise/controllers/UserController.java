@@ -4,10 +4,13 @@ import com.example.splitwise.dtos.RegisterUserRequestDto;
 import com.example.splitwise.dtos.RegisterUserResponseDto;
 import com.example.splitwise.models.User;
 import com.example.splitwise.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class UserController {
-    private UserService userService;
-
+    private final UserService userService;
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }

@@ -1,10 +1,12 @@
 package com.example.splitwise.commands.registry;
 
 import com.example.splitwise.commands.Command;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CommandRegistryImpl implements CommandRegistry {
     private List<Command> commands = new ArrayList();
     @Override

@@ -20,4 +20,11 @@ public class UserService {
 
         return userRepository.save(user);
     }
+
+    public User updateProfile(Long id, String password) {
+        User user = userRepository.findUsersById(id);
+        user.setPassword(password);
+        User updatedUser = userRepository.save(user);
+        return updatedUser;
+    }
 }

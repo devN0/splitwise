@@ -6,9 +6,9 @@ So we need to read the inputs from command line, parse them and perform actions 
 Input-format:
 - Register dev 9876543210 pass
     this means u1 is registering with username "dev", phoneNumber "9876543210" and password as "pass"
-- u1 updateProfile newPass
+- u_id updateProfile newPass
     this means that u1 is updating their password to "newPass";
-- u1 addGroup Roommates
+- u_id addGroup Roommates
     u1 is creating a group titled "Roommates"
 
 ** A P P R O A C H **

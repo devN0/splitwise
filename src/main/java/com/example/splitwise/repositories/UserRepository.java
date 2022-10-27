@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 //    to save to DB
 //    If user have an Id which is already present in db it will update that record else create new one.
     User save(User user);
+
+    User findUsersById(Long id);
 }

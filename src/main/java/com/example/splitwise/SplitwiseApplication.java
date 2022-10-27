@@ -29,7 +29,7 @@ public class SplitwiseApplication implements CommandLineRunner {
         commandRegistry.registerCommand(registerUserCommand);
         commandRegistry.registerCommand(updateProfileCommand);
 
-        String input = "Register u1 9876543210 noop";
+        String input = "2 UpdateProfile password123";
 
         commandRegistry.executeCommand(input);
     }

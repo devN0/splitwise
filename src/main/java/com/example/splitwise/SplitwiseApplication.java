@@ -3,15 +3,16 @@ package com.example.splitwise;
 import com.example.splitwise.commands.RegisterUserCommand;
 import com.example.splitwise.commands.UpdateProfileCommand;
 import com.example.splitwise.commands.registry.CommandRegistry;
-import com.example.splitwise.commands.registry.CommandRegistryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
+@EnableConfigurationProperties(CustomProperties.class)
 public class SplitwiseApplication implements CommandLineRunner {
     @Autowired
     private CommandRegistry commandRegistry;
@@ -29,7 +30,7 @@ public class SplitwiseApplication implements CommandLineRunner {
         commandRegistry.registerCommand(registerUserCommand);
         commandRegistry.registerCommand(updateProfileCommand);
 
-        String input = "2 UpdateProfile password123";
+        String input = "2 UpdateProfile password1234";
 
         commandRegistry.executeCommand(input);
     }

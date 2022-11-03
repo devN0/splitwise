@@ -17,7 +17,6 @@ public class UserService {
         user.setName(name);
         user.setPhoneNumber(phoneNumber);
         user.setPassword(password);
-
         return userRepository.save(user);
     }
 

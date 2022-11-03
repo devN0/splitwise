@@ -1,5 +1,6 @@
 package com.example.splitwise.controllers;
 
+import com.example.splitwise.CustomProperties;
 import com.example.splitwise.dtos.RegisterUserRequestDto;
 import com.example.splitwise.dtos.RegisterUserResponseDto;
 import com.example.splitwise.dtos.UpdateProfileRequestDto;
@@ -12,6 +13,10 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class UserController {
     private final UserService userService;
+
+    @Autowired
+    private CustomProperties customProperties;
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
@@ -35,8 +40,12 @@ public class UserController {
 
         User user = userService.updateProfile(id, password);
 
+        System.out.println(customProperties.getUrl());
+        System.out.println(customProperties.getProp().getCamelCaseData());
+
         UpdateProfileResponseDto updateProfileResponseDto = new UpdateProfileResponseDto();
         updateProfileResponseDto.setUser(user);
         return updateProfileResponseDto;
     }
+
 }

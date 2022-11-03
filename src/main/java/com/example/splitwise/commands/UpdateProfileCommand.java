@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class UpdateProfileCommand implements Command {
 
-    UserController userController;
+    private final UserController userController;
     @Autowired
     public UpdateProfileCommand(UserController userController) {
         this.userController = userController;

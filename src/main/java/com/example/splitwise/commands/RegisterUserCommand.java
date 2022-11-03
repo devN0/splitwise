@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class RegisterUserCommand implements Command {
 
-    private final UserController userController;
+    private UserController userController;
     @Autowired
     public RegisterUserCommand(UserController userController) {
         this.userController = userController;
